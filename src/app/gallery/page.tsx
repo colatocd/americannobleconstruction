@@ -83,11 +83,12 @@ export default function GalleryPage() {
       {selectedIndex !== null && (
         <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9999]">
           <button
-            onClick={handleClose}
-            className="absolute top-6 right-6 text-white text-4xl font-bold hover:opacity-80"
-          >
-            &times;
-          </button>
+  onClick={handleClose}
+  className="absolute top-4 right-4 z-50 bg-[#0a1f44] text-white text-3xl font-bold p-2 rounded-full shadow-md hover:bg-[#1e40af] focus:outline-none"
+>
+  &times;
+</button>
+
 
           <div className="flex items-center justify-center w-full max-w-5xl px-4 relative">
             <button
