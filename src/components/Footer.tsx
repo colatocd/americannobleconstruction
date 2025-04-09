@@ -13,7 +13,7 @@ export default function Footer() {
         </div>
 
         {/* Footer Info */}
-        <p className="text-sm">Serving the area since 2002</p>
+        <p className="text-sm">Serving the area since 2006</p>
         <p className="text-sm">(703) 926-4398 | danielcolato75@yahoo.com</p>
 
         {/* Copyright */}

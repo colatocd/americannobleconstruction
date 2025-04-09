@@ -20,7 +20,7 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-6">About American Noble Construction</h2>
           <p className="text-lg leading-relaxed">
-            American Noble Construction Inc. is a licensed, full-service contracting company serving homeowners and businesses since 2002.
+            American Noble Construction Inc. is a licensed, full-service contracting company serving homeowners and businesses since 2006.
             We specialize in delivering high-quality construction, remodeling, and custom carpentry services across the region.
           </p>
           <p className="mt-6 text-lg leading-relaxed">

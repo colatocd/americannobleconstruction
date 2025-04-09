@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
@@ -8,7 +9,15 @@ export default function Navbar() {
       <nav className="container mx-auto flex items-center justify-between py-6 px-6">
         {/* Logo (Moved Slightly Left) */}
         <a href="/" className="text-2xl font-bold text-white tracking-wide uppercase">
-          <img src="/images/logo.png" alt="Company Logo" className="h-16 ml-[-90px]" />
+          <div className="ml-[-90px]">
+            <Image
+              src="/images/logo.png"
+              alt="Company Logo"
+              width={64}
+              height={64}
+              priority
+            />
+          </div>
         </a>
 
         {/* Navigation Links (Aligned Right) */}
