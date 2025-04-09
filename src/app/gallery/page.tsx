@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 
 export default function GalleryPage() {
   const images = Array.from({ length: 18 }, (_, i) => `/images/project${i + 1}.jpeg`);
@@ -8,8 +9,14 @@ export default function GalleryPage() {
 
   const handleOpen = (index: number) => setSelectedIndex(index);
   const handleClose = () => setSelectedIndex(null);
-  const showPrev = () => setSelectedIndex((prev) => (prev! > 0 ? prev! - 1 : images.length - 1));
-  const showNext = () => setSelectedIndex((prev) => (prev! < images.length - 1 ? prev! + 1 : 0));
+
+  const showPrev = useCallback(() => {
+    setSelectedIndex((prev) => (prev! > 0 ? prev! - 1 : images.length - 1));
+  }, [images.length]);
+
+  const showNext = useCallback(() => {
+    setSelectedIndex((prev) => (prev! < images.length - 1 ? prev! + 1 : 0));
+  }, [images.length]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -17,24 +24,28 @@ export default function GalleryPage() {
       if (e.key === "ArrowRight") showNext();
       if (e.key === "ArrowLeft") showPrev();
     };
-  
+
     if (selectedIndex !== null) {
       window.addEventListener("keydown", handleKeyDown);
     }
-  
+
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedIndex]);
-  
+  }, [selectedIndex, showNext, showPrev]);
 
   return (
     <main className="w-full min-h-screen bg-gray-100 text-white">
-
       {/* Hero */}
       <section className="relative w-full h-[60vh] flex flex-col items-center justify-center text-center">
-        <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/images/project6.jpeg')" }}
-        />
+        <div className="absolute inset-0 w-full h-full">
+          <Image
+            src="/images/project6.jpeg"
+            alt="Hero Background"
+            fill
+            className="object-cover"
+            priority
+            unoptimized
+          />
+        </div>
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 max-w-4xl px-6">
           <h1 className="text-5xl font-extrabold">Our Work Speaks for Itself</h1>
@@ -50,13 +61,19 @@ export default function GalleryPage() {
           <h2 className="text-3xl font-bold text-center mb-10">Project Gallery</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {images.map((src, index) => (
-              <img
+              <div
                 key={index}
-                src={src}
-                alt={`Project ${index + 1}`}
                 onClick={() => handleOpen(index)}
-                className="rounded-lg shadow-lg w-full h-[200px] object-cover cursor-pointer hover:scale-105 transition-transform"
-              />
+                className="relative w-full h-[200px] rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform"
+              >
+                <Image
+                  src={src}
+                  alt={`Project ${index + 1}`}
+                  fill
+                  className="object-cover rounded-lg"
+                  unoptimized
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -72,26 +89,27 @@ export default function GalleryPage() {
             &times;
           </button>
 
-          <div className="flex items-center justify-center w-full max-w-5xl px-4">
-            {/* Prev button outside image */}
+          <div className="flex items-center justify-center w-full max-w-5xl px-4 relative">
             <button
               onClick={showPrev}
-              className="absolute left-4 text-white bg-[#0a1f44] px-4 py-2 rounded hover:bg-opacity-90"
+              className="absolute left-4 text-white bg-[#0a1f44] px-4 py-2 rounded hover:bg-opacity-90 z-10"
             >
               ‹
             </button>
 
-            {/* Image */}
-            <img
-              src={images[selectedIndex]}
-              alt={`Enlarged Project ${selectedIndex + 1}`}
-              className="max-h-[80vh] object-contain mx-auto"
-            />
+            <div className="relative w-full h-[80vh]">
+              <Image
+                src={images[selectedIndex]}
+                alt={`Enlarged Project ${selectedIndex + 1}`}
+                fill
+                className="object-contain"
+                unoptimized
+              />
+            </div>
 
-            {/* Next button outside image */}
             <button
               onClick={showNext}
-              className="absolute right-4 text-white bg-[#0a1f44] px-4 py-2 rounded hover:bg-opacity-90"
+              className="absolute right-4 text-white bg-[#0a1f44] px-4 py-2 rounded hover:bg-opacity-90 z-10"
             >
               ›
             </button>
