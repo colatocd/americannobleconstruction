@@ -6,10 +6,10 @@ import Image from "next/image";
 export default function Navbar() {
   return (
     <header className="absolute top-0 left-0 w-full z-50">
-      <nav className="container mx-auto flex items-center justify-between py-6 px-6">
+      <nav className="container mx-auto flex items-center justify-between py-0 px-6">
         {/* Logo (Moved Slightly Left) */}
         <Link href="/" className="ml-[-90px]">
-  <div className="relative h-32 w-80"> {/* h-24 = 96px tall, w-64 = 256px wide */}
+  <div className="relative h-36 w-90"> {/* h-24 = 96px tall, w-64 = 256px wide */}
     <Image
       src="/images/logo.png"
       alt="Company Logo"
