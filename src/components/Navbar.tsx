@@ -9,14 +9,19 @@ export default function Navbar() {
       <nav className="container mx-auto flex items-center justify-between py-6 px-6">
         {/* Logo (Moved Slightly Left) */}
         <Link href="/" className="ml-[-90px]">
-          <Image
-            src="/images/logo.png"
-            alt="Company Logo"
-            width={64}
-            height={64}
-            priority
-          />
-        </Link>
+  <div className="relative h-32 w-80"> {/* h-24 = 96px tall, w-64 = 256px wide */}
+    <Image
+      src="/images/logo.png"
+      alt="Company Logo"
+      fill
+      className="object-contain"
+      priority
+    />
+  </div>
+</Link>
+
+
+
 
         {/* Navigation Links (Aligned Right) */}
         <div className="flex items-center space-x-8 text-lg font-medium ml-auto">
