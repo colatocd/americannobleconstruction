@@ -9,9 +9,9 @@ export default function Navbar() {
 
   return (
     <header className="absolute top-0 left-0 w-full z-50">
-      <nav className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
+      <nav className="flex items-center justify-between px-0 py-4 max-w-7xl mx-auto">
         {/* Logo */}
-        <Link href="/" className="relative h-16 w-40">
+        <Link href="/" className="relative h-16 w-100">
           <Image
             src="/images/logo.png"
             alt="Company Logo"
