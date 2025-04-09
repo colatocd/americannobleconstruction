@@ -119,7 +119,7 @@ export default function Contact() {
               Send Message
             </button>
 
-            {status && <p className="mt-4 text-center text-sm font-semibold text-white">{status}</p>}
+            {status && <p className="mt-4 text-center text-sm font-semibold text-black">{status}</p>}
           </form>
         </div>
       </section>
