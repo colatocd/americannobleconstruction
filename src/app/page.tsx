@@ -2,21 +2,32 @@ export default function Home() {
   return (
     <main className="w-full min-h-screen bg-gray-100 text-white">
 
-      {/* Hero Section */}
-      <section className="relative w-full h-[65vh] flex flex-col items-center justify-center text-center">
-        <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/images/project4.jpeg')" }}
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="relative z-10 max-w-3xl px-6">
-          <h1 className="text-5xl font-extrabold leading-tight">Our Process Turns Your Remodeling Dreams into Reality</h1>
-          <p className="text-lg mt-4 font-light italic">Quality work completed on time and on budget at reasonable rates</p>
-          <a href="/contact" className="mt-6 inline-block bg-[#0a1f44] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-[#1e40af] transition">
-            Schedule a Consultation
-          </a>
-        </div>
-      </section>
+     {/* Hero Section */}
+<section className="relative w-full min-h-[65vh] flex items-center justify-center text-center px-4 sm:px-6 md:px-8">
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+    style={{ backgroundImage: "url('/images/project4.jpeg')" }}
+  />
+  <div className="absolute inset-0 bg-black/50" />
+
+  {/* Text Content */}
+  <div className="relative z-10 max-w-3xl w-full">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-white">
+      Our Process Turns Your Remodeling Dreams into Reality
+    </h1>
+    <p className="text-base sm:text-lg mt-4 font-light italic text-white">
+      Quality work completed on time and on budget at reasonable rates
+    </p>
+    <a
+      href="/contact"
+      className="mt-6 inline-block bg-[#0a1f44] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-[#1e40af] transition"
+    >
+      Schedule a Consultation
+    </a>
+  </div>
+</section>
+
 
       {/* Services Section */}
       <section className="py-28 bg-white text-black">
